@@ -1,0 +1,19 @@
+:root {
+    --primary-color: #F6D579;
+    --primary-color-dark: #ECB914;
+    --secondary-color: #FFFDF6;
+    --secondary-color-dark: #CBB8A0;
+    --dark-color: #373737;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--secondary-color-dark) !important;
+    font-family: Bahnschrift, serif;
+}
+
