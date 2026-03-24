@@ -4,6 +4,9 @@
     --secondary-color: #FFFDF6;
     --secondary-color-dark: #CBB8A0;
     --dark-color: #373737;
+    --dark-soft: #555050;
+    --text-muted: #8a7f72;
+    --border-color: #e0d9cc;
 }
 
 * {
@@ -13,7 +16,7 @@
 }
 
 body {
-    background-color: var(--secondary-color-dark) !important;
-    font-family: Bahnschrift, serif;
+    background-color: var(--secondary-color);
+    font-family: Bahnschrift, sans-serif;
+    color: var(--dark-color);
 }
-

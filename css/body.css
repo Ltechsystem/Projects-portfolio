@@ -1,84 +1,319 @@
 .body-content {
-    min-height: calc(100vh - 70px); /* adjust if header height changes */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 40px 4%;
-    background: #f8fafc;
-    box-sizing: border-box;
+    min-height: calc(100vh - 68px);
+    padding: 64px 5%;
+    background: var(--secondary-color);
 }
 
-/* Container for all cards */
+/* ── Hero (home page) ─────────────────────────── */
+.hero {
+    max-width: 620px;
+    margin-bottom: 64px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--primary-color-dark);
+    margin-bottom: 16px;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--dark-color);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+}
+
+.hero h1 em {
+    font-style: normal;
+    color: var(--primary-color-dark);
+}
+
+.hero p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 480px;
+}
+
+/* ── Section label ────────────────────────────── */
+.section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+/* ── Projects grid ────────────────────────────── */
 .projects-container {
     width: 100%;
-    max-width: 1400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 1200px;
 }
 
-/* Grid layout for flexible scaling */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
     list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    border: 1px solid var(--border-color);
+    /* grid lines via gap + background trick */
+    gap: 1px;
+    background-color: var(--border-color);
 }
 
-/* Individual card styling */
 .project-card {
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-    padding: 24px;
+    background: var(--secondary-color);
+    padding: 32px 28px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.3s ease;
-    max-width: 360px;
-    max-height: 220px;
+    gap: 12px;
+    position: relative;
+    transition: background 0.2s;
     overflow: hidden;
 }
 
+/* Gold left-border accent on hover */
+.project-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--primary-color-dark);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.25s ease;
+}
+
 .project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    background: #fffaee;
 }
 
-/* Project title (link) */
+.project-card:hover::before {
+    transform: scaleY(1);
+}
+
 .project-card a {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2563eb;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark-color);
     text-decoration: none;
-    margin-bottom: 8px;
-    transition: color 0.3s ease;
+    transition: color 0.2s;
+    line-height: 1.3;
 }
 
-.project-card a:hover {
-    color: #0ea5a4;
+.project-card:hover a {
+    color: var(--primary-color-dark);
 }
 
-/* Project description */
 .project-card p {
-    font-size: 0.95rem;
-    color: #4b5563;
-    line-height: 1.4;
-    flex-grow: 1;
-    margin-top: 4px;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.6;
 }
 
-/* Responsive behavior */
-@media (max-width: 768px) {
-    .project-card {
-        max-width: 100%;
-        max-height: none;
+/* ── About / Contact generic page ────────────── */
+.page-content {
+    max-width: 640px;
+}
+
+.page-content h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    color: var(--dark-color);
+}
+
+.page-content .lead {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 32px;
+}
+
+/* Contact info list */
+.contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border-color);
+    max-width: 420px;
+}
+
+.contact-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    transition: background 0.2s;
+}
+
+.contact-list li:last-child {
+    border-bottom: none;
+}
+
+.contact-list li:hover {
+    background: #fffaee;
+}
+
+.contact-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--primary-color-dark);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.25s ease;
+}
+
+.contact-list li:hover::before {
+    transform: scaleY(1);
+}
+
+.contact-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--primary-color-dark);
+}
+
+.contact-value {
+    font-size: 0.95rem;
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+/* ── About page sections ──────────────────────── */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border-color);
+    border: 1px solid var(--border-color);
+    max-width: 640px;
+    margin-bottom: 48px;
+}
+
+.about-block {
+    background: var(--secondary-color);
+    padding: 24px 28px;
+}
+
+.about-block-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--primary-color-dark);
+    margin-bottom: 8px;
+}
+
+.about-block p,
+.about-block span {
+    font-size: 0.9rem;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.about-block .sub {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* Skills */
+.skills-section {
+    max-width: 640px;
+    margin-bottom: 48px;
+}
+
+.skills-group {
+    margin-bottom: 20px;
+}
+
+.skills-group-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--dark-color);
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 5px 12px;
+    letter-spacing: 0.02em;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.skill-tag:hover {
+    border-color: var(--primary-color-dark);
+    color: var(--primary-color-dark);
+}
+
+/* Strengths */
+.strengths-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 640px;
+    margin-bottom: 48px;
+}
+
+.strength-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    background: var(--dark-color);
+    padding: 6px 14px;
+    letter-spacing: 0.04em;
+}
+
+@media (max-width: 640px) {
+    .body-content {
+        padding: 40px 4%;
     }
 
-    .body-content {
-        padding: 20px;
+    .hero {
+        margin-bottom: 40px;
+        padding-bottom: 32px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
     }
 }
