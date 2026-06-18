@@ -78,7 +78,7 @@ export default function App() {
             <h1 className="mb-2">Hi welcome, I am Joachim Low </h1>
             <div className="flex justify-center gap-6 mt-4">
               <a
-                href="https://github.com"
+                href="https://github.com/Ltechsystem"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -87,7 +87,7 @@ export default function App() {
                 GitHub
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/joachim-low-4aba43216/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -96,7 +96,7 @@ export default function App() {
                 LinkedIn
               </a>
               <a
-                href="mailto:contact@example.com"
+                href="mailto:joachimlow02@gmail.com"
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Mail className="w-5 h-5" />
