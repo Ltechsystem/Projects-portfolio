@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Local env files
+.env
+.env.local
+
+# Playwright
+.playwright-mcp/
